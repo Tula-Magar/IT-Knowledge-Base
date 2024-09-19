@@ -1,38 +1,72 @@
+:root {
+  --background-color: #000000; /* Set background color to black */
+  --text-color: #e0e0e0;       /* Light gray text for readability on black */
+  --link-color: #82aaff;       /* Soft blue for links */
+  --container-bg-color: #000000; /* Keep containers black to match the background */
+  --input-bg-color: #1e1e1e;   /* Dark gray for input fields */
+}
+
+#app-wrapper {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 .App {
-  text-align: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  width: 75%;
+  margin: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  background-color: var(--container-bg-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  color: var(--link-color);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.input {
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
 }
 
-.App-link {
-  color: #61dafb;
+/* Navbar Styling */
+.navbar {
+  background-color: #000000; /* Black navbar background */
+  border-bottom: 1px solid #444; /* Subtle border at the bottom */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-nav .nav-item {
+  margin-right: 20px; /* Adjust this value to increase or decrease spacing */
+}
+
+.navbar-nav .nav-link {
+  padding-right: 10px; /* Optional: Increase padding if needed */
+}
+
+
+.navbar .nav-link {
+  color: var(--text-color); /* Light gray text color for links */
+}
+
+
+.navbar .nav-link:hover {
+  color: #ffffff; /* White text on hover for better visibility */
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #333;
 }
