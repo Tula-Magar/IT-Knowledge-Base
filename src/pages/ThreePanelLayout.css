@@ -1,27 +1,137 @@
 .three-panel-layout {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    padding-left: 0px;
-    padding-right: 0px;
-    height: 100vh; /* Full viewport height */
+  display: flex; /* Use flexbox for layout */
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px; /* Limit width */
+  height: 100vh;
+}
+
+.panel {
+  padding: 10px;
+  /* border-left: 1px solid #ccc;  */
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+}
+
+/* Styles for the left panel */
+.panel-left {
+  width: 20%; /* Left panel width */
+  border-right: 1px solid #ccc; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  height: auto; /* Allow height to be auto */
+}
+
+/* Container for middle and right panels */
+.main-content-container {
+  display: flex; /* Use flex for middle and right panels */
+  flex-direction: column; /* Stack them vertically */
+  width: 80%; /* Remaining width */
+}
+
+/* Styles for the center panel */
+.panel-center {
+  flex: 1; /* Grow to fill available space */
+  margin-bottom: 20px; /* Space below center panel */
+}
+
+/* Styles for the right panel */
+.panel-right {
+  width: 100%; /* Right panel width in flex column */
+}
+
+/* Hamburger menu styles */
+.hamburger-menu {
+  display: none; /* Hidden by default */
+}
+
+/* Small Screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .three-panel-layout {
+    flex-direction: column; /* Stack panels vertically */
+    max-width: 100%; /* Full width on smaller screens */
   }
-  
-  .panel {
-    width: 30%; /* Adjust the size of each panel */
-    padding: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+  .panel-left {
+    display: none; /* Hide the left panel */
   }
-  
+
+  .hamburger-menu {
+    display: block; /* Show hamburger on small screens */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+  .main-content-container {
+    width: 100%; /* Full width for center and right panels */
+  }
+
+  .panel-center,
+  .panel-right {
+    width: 100%; /* Full width for center and right panels */
+    margin-bottom: 20px; /* Space between panels */
+  }
+
+  .panel-left.open {
+    display: block; /* Show left panel when hamburger menu is active */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px; /* Width of the left panel */
+    height: 100%; /* Full height for the left panel */
+    background-color: white;
+    z-index: 1000; /* Ensure it overlaps other content */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Medium Screens (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .three-panel-layout {
+    flex-direction: row; /* Align panels horizontally */
+  }
+
+  .panel-left {
+    display: block; /* Show left panel */
+    position: static; /* Reset position to static */
+    height: auto; /* Allow height to be auto */
+    overflow-y: auto; /* Enable scrolling for left panel if needed */
+  }
+
+  .main-content-container {
+    display: flex; /* Use flex for middle and right panels */
+    flex-direction: column; /* Stack them vertically */
+    width: 80%; /* Remaining width for the container */
+  }
+
+  .panel-center,
+  .panel-right {
+    width: 100%; /* Full width for center and right panels */
+  }
+}
+
+/* Large Screens */
+/* Large Screens */
+@media (min-width: 1025px) {
+  .three-panel-layout {
+    flex-direction: row; /* Align panels horizontally */
+  }
+
+  .panel-left {
+    display: block; /* Show left panel */
+  }
+
+  .main-content-container {
+    display: flex; /* Use flex for middle and right panels */
+    flex-direction: row; /* Align them in a row */
+  }
   .panel-center {
-    width: 70%; /* Make the center panel larger for the main content */
+    width: 60%; /* Center panel takes 60% */
   }
-  
-  .markdown-content {
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+
+  .panel-right {
+    width: 30%; /* Right panel takes 20% */
   }
-  
+}

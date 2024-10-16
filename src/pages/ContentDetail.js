@@ -7,28 +7,26 @@ function ContentDetail() {
   const { id } = useParams(); // Get the content id from the URL parameters
   const [content, setContent] = useState(null);
   const [isMarkdown, setIsMarkdown] = useState(true); // Default to markdown
+  const [isLeftPanelOpen, setIsLeftPanelOpen] = useState(false); // State for left panel
 
   useEffect(() => {
     const loadContent = async () => {
       try {
-        // Check if the content is a React component based on naming convention
         if (id.startsWith('js')) {
-          // Assume React components are stored in a `components` folder
           const component = await import(`../content/justReact/${id.replace('js-', '')}`);
           setContent(() => component.default);
-          setIsMarkdown(false); // It's a React component
+          setIsMarkdown(false);
         } else {
-          // Load the content as Markdown from the `markDown` folder
           const markdown = await import(`../content/markDown/${id}.md`);
           const response = await fetch(markdown.default);
           const text = await response.text();
-          setContent(text); // Set Markdown content
-          setIsMarkdown(true); // This is markdown content
+          setContent(text);
+          setIsMarkdown(true);
         }
       } catch (error) {
         console.error('Error loading content:', error);
         setContent('# Content not found');
-        setIsMarkdown(true); // Treat the error case as markdown
+        setIsMarkdown(true);
       }
     };
 
@@ -37,26 +35,55 @@ function ContentDetail() {
 
   return (
     <div className="three-panel-layout">
-      <div className="panel panel-left">
+      {/* Hamburger menu */}
+      <div className="hamburger-menu" onClick={() => setIsLeftPanelOpen(!isLeftPanelOpen)}>
+        &#9776; {/* Hamburger icon */}
+      </div>
+
+      {/* Left panel, toggles with hamburger menu */}
+      <div className={`panel panel-left ${isLeftPanelOpen ? 'open' : ''}`}>
         <h2>Panel 1</h2>
         <p>This can be additional navigation or static content.</p>
       </div>
 
-      <div className="panel panel-center">
-        <h2>Main Content</h2>
-        <div className="content-display">
-          {/* Render the content */}
-          {isMarkdown ? (
-            <ReactMarkdown>{content}</ReactMarkdown>
-          ) : (
-            content && React.createElement(content) // Correctly render the component
-          )}
+      {/* Main Content and Right Panel Container */}
+      <div className="main-content-container">
+        {/* Main Content */}
+        <div className="panel panel-center">
+          <h2>Main Content</h2>
+          <div className="content-display">
+            {isMarkdown ? (
+              <ReactMarkdown>{content}</ReactMarkdown>
+            ) : (
+              content && React.createElement(content)
+            )}
+          </div>
         </div>
-      </div>
 
-      <div className="panel panel-right">
-        <h2>Panel 3</h2>
-        <p>Another panel for related content or actions.</p>
+        {/* Right panel */}
+        <div className="panel panel-right">
+          <h2>Panel 3</h2>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          <p>Another panel for related content or actions.</p>
+          {/* Add more content as needed */}
+        </div>
       </div>
     </div>
   );
