@@ -44,6 +44,11 @@ function ContentDetail() {
       <div className={`panel panel-left ${isLeftPanelOpen ? 'open' : ''}`}>
         <h2>Panel 1</h2>
         <p>This can be additional navigation or static content.</p>
+        <p>This can be additional navigation or static content.</p>
+        <p>This can be additional navigation or static content.</p>
+        <p>This can be additional navigation or static content.</p>
+        <p>This can be additional navigation or static content.</p>
+     
       </div>
 
       {/* Main Content and Right Panel Container */}

@@ -3,7 +3,6 @@
   padding: 20px;
   margin: 0 auto;
   max-width: 1200px; /* Limit width */
-  height: 100vh;
 }
 
 .panel {
@@ -19,13 +18,6 @@
   border-right: 1px solid #ccc; 
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   height: auto; /* Allow height to be auto */
-}
-
-/* Container for middle and right panels */
-.main-content-container {
-  display: flex; /* Use flex for middle and right panels */
-  flex-direction: column; /* Stack them vertically */
-  width: 80%; /* Remaining width */
 }
 
 /* Styles for the center panel */
@@ -90,29 +82,42 @@
 /* Medium Screens (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .three-panel-layout {
-    flex-direction: row; /* Align panels horizontally */
+    display: flex;
+    flex-direction: row; /* Align panels in a row */
+    height:auto; /* Ensure the layout takes full viewport height */
   }
 
   .panel-left {
-    display: block; /* Show left panel */
-    position: static; /* Reset position to static */
-    height: auto; /* Allow height to be auto */
-    overflow-y: auto; /* Enable scrolling for left panel if needed */
+    width: 200px; /* Left panel takes 20% width */
+    position: fixed; /* Fixed positioning */
+    top: 80px; /* Stick to the top with a 10vh margin */
+    bottom: -10; /* Stick to the bottom */
+    height: 100vh; /* Full height minus the top offset */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+    z-index: 10; /* Keep above other elements */
+    padding-bottom: 100px; /* used this trick to show the scroll before bottom width touches content */
   }
 
   .main-content-container {
-    display: flex; /* Use flex for middle and right panels */
-    flex-direction: column; /* Stack them vertically */
-    width: 80%; /* Remaining width for the container */
+    display: flex; /* Use flexbox for center and right panels */
+    flex-direction: column;
+    flex: 1; /* Take the remaining width */
+    height: auto;/* Full height of the viewport */
+    margin-left: 200px;
   }
 
-  .panel-center,
+  .panel-center {
+    width: 100%; /* Center panel takes 60% */
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+  }
+
   .panel-right {
-    width: 100%; /* Full width for center and right panels */
+    width: 100%; /* Right panel takes 40% */
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
   }
 }
 
-/* Large Screens */
+
 /* Large Screens */
 @media (min-width: 1025px) {
   .three-panel-layout {
@@ -124,6 +129,7 @@
   }
 
   .main-content-container {
+    width: 80%;
     display: flex; /* Use flex for middle and right panels */
     flex-direction: row; /* Align them in a row */
   }
