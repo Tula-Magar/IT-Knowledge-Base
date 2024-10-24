@@ -34,39 +34,3 @@ a {
   background-color: var(--input-bg-color);
   color: var(--text-color);
 }
-
-/* Navbar Styling */
-.navbar {
-  background-color: #000000; /* Black navbar background */
-  border-bottom: 1px solid #444; /* Subtle border at the bottom */
-}
-
-.navbar-nav .nav-item {
-  margin-right: 20px; /* Adjust this value to increase or decrease spacing */
-}
-
-.navbar-nav .nav-link {
-  padding-right: 10px; /* Optional: Increase padding if needed */
-}
-
-
-.navbar .nav-link {
-  color: var(--text-color); /* Light gray text color for links */
-}
-
-
-.navbar .nav-link:hover {
-  color: #ffffff; /* White text on hover for better visibility */
-}
-
-button {
-  background-color: transparent;
-  border: 1px solid var(--text-color);
-  color: var(--text-color);
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #333;
-}
