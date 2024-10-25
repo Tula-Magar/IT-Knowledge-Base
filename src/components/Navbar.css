@@ -1,40 +1,75 @@
 /* Navbar Styling */
 .navbar {
-    background-color: #000000; /* Black navbar background */
-    border-bottom: 1px solid #444; /* Subtle border at the bottom */
+  z-index: 1030; /* Bootstrap default for sticky navbar */
+}
+
+/* Hamburger icon styling */
+.navbar-toggler {
+  border: none; /* Remove border */
+  background-color: transparent; /* Make background transparent */
+}
+
+.navbar-toggler-icon {
+  background-color: transparent; /* Ensure background is transparent */
+  border: none; /* Ensure no border */
+  width: 20px; /* Adjust the size if necessary */
+  height: 20px; /* Adjust the size if necessary */
+}
+
+/* Creating a custom icon */
+.navbar-toggler-icon {
+  background-image: none; /* Remove the default Bootstrap image */
+}
+
+.navbar-toggler:focus {
+  outline: none; /* Remove outline on focus */
+}
+
+/* Custom white lines for the hamburger icon */
+.navbar-toggler:before,
+.navbar-toggler:after,
+.navbar-toggler span {
+  display: block;
+  content: '';
+  width: 20px; /* Width of the hamburger lines */
+  height: 2px; /* Height of the hamburger lines */
+  background-color: #ffffff; /* White color for the icon */
+  margin: 4px 0; /* Space between the lines */
+}
+
+.navbar-nav .nav-item {
+  margin-right: 20px; /* Adjust this value to increase or decrease spacing */
+}
+
+.navbar-nav .nav-link {
+  padding-right: 10px; /* Optional: Increase padding if needed */
+}
+
+.navbar .nav-link {
+  color: var(--text-color); /* Light gray text color for links */
+}
+
+.navbar .nav-link:hover {
+  color: #ffffff; /* White text on hover for better visibility */
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between; /* Adjusts spacing between items */
+    align-items: center; /* Center items vertically */
+    margin-left: 100px;
   }
-  
-  .navbar-toggler-icon{
-    color: #ffffff;
-    background-color: white;
-  }
-  .navbar-nav .nav-item {
-    margin-right: 20px; /* Adjust this value to increase or decrease spacing */
-  }
-  
-  .navbar-nav .nav-link {
-    padding-right: 10px; /* Optional: Increase padding if needed */
-  }
-  
-  
-  .navbar .nav-link {
-    color: var(--text-color); /* Light gray text color for links */
-  }
-  
-  
-  .navbar .nav-link:hover {
-    color: #ffffff; /* White text on hover for better visibility */
-  }
-  
-  button {
-    background-color: transparent;
-    border: 1px solid var(--text-color);
-    color: var(--text-color);
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #333;
-  }
-  
+}

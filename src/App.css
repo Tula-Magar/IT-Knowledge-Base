@@ -1,5 +1,5 @@
 :root {
-  --background-color: #000000; /* Set background color to black */
+  --background-color: rgb(37, 38, 39); /* Set background color to black */
   --text-color: #e0e0e0;       /* Light gray text for readability on black */
   --link-color: #82aaff;       /* Soft blue for links */
   --container-bg-color: #000000; /* Keep containers black to match the background */
@@ -22,6 +22,14 @@
   margin: auto;
 }
 
+@media (max-width: 768px) {
+  .App {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    width: 90%;
+    margin: auto;
+  }
+}
 .container {
   background-color: var(--container-bg-color);
 }

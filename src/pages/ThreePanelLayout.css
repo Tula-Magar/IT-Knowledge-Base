@@ -42,40 +42,54 @@
     flex-direction: column; /* Stack panels vertically */
     max-width: 100%; /* Full width on smaller screens */
   }
+  .panel {
+    padding: 0px;
+    overflow-y: auto; /* Enable scrolling if content overflows */
+  }
 
   .panel-left {
     display: none; /* Hide the left panel */
   }
 
+  /* Move hamburger to the left */
   .hamburger-menu {
     display: block; /* Show hamburger on small screens */
     position: absolute;
-    top: 20px;
-    right: 20px;
+    position: fixed;
+    top: 15px;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 20px;
+    z-index: 1000;
   }
 
   .main-content-container {
     width: 100%; /* Full width for center and right panels */
   }
 
+.hamburger-menu.close {
+  font-size: 24px; /* Size of the close icon */
+}
+
+
   .panel-center,
   .panel-right {
     width: 100%; /* Full width for center and right panels */
+    margin-left: 0px;
     margin-bottom: 20px; /* Space between panels */
   }
 
+  /* Open the menu below the navbar */
   .panel-left.open {
     display: block; /* Show left panel when hamburger menu is active */
     position: absolute;
-    top: 0;
+    top: 60px; /* Adjust the top value to open below the navbar */
     left: 0;
-    width: 200px; /* Width of the left panel */
-    height: 100%; /* Full height for the left panel */
+    width: 100%; /* Full width below the navbar */
+    height: auto; /* Adjust height to content */
     background-color: white;
     z-index: 1000; /* Ensure it overlaps other content */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    background-color: #ccc;
   }
 }
 
