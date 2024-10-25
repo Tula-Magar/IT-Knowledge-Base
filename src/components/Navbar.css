@@ -1,5 +1,7 @@
 /* Navbar Styling */
 .navbar {
+  margin: 0 auto;
+  max-width: 1200px; /* Limit width */
   z-index: 1030; /* Bootstrap default for sticky navbar */
 }
 

@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
-import ThemeToggle from "./ThemeToggle"
+import ThemeToggle from "./ThemeToggle";
 
 function Navbar() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    // Implement your search logic here
+    console.log(searchTerm); // Just for demonstration
+  };
+
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
       <div className="container-fluid">
@@ -12,7 +24,7 @@ function Navbar() {
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"  
+          data-bs-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
@@ -34,6 +46,17 @@ function Navbar() {
               <Link className="nav-link text-light" to="/content">Content</Link>
             </li>
           </ul>
+          <form className="d-flex" onSubmit={handleSearchSubmit}>
+            <input
+              type="search"
+              className="form-control me-2"
+              placeholder="Search"
+              aria-label="Search"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <button className="btn btn-outline-light" type="submit">Search</button>
+          </form>
         </div>
       </div>
     </nav>

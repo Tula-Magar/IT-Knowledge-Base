@@ -1,6 +1,6 @@
 .three-panel-layout {
   display: flex; /* Use flexbox for layout */
-  padding: 20px;
+  padding-top: 20px;
   margin: 0 auto;
   max-width: 1200px; /* Limit width */
 }
