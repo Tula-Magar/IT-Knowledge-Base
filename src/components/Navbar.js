@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import "./Navbar.css";
-import ThemeToggle from "./ThemeToggle";
 
 function Navbar() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,7 +18,7 @@ function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
-      <div className="container-fluid">
+      <div className="container-fluid" style={{paddingLeft:"0", paddingRight:"0"}} >
         <Link className="navbar-brand text-light" to="/">MyApp</Link>
         <button
           className="navbar-toggler"

@@ -19,6 +19,7 @@
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0 auto;
+  padding: 0;
   max-width: 1200px; /* Limit width */
 
 }
