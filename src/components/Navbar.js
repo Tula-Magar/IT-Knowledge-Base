@@ -17,8 +17,8 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg sticky-top">
-      <div className="container-fluid" style={{paddingLeft:"0", paddingRight:"0"}} >
+    <nav className="navbar navbar-expand-lg sticky-top" >
+      <div className="container-fluid" style={{paddingLeft:"10px", marginRight:"10px"}} >
         <Link className="navbar-brand text-light" to="/">MyApp</Link>
         <button
           className="navbar-toggler"

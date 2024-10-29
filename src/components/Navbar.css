@@ -4,6 +4,7 @@
   margin: 0 auto;
   max-width: 1200px; /* Limit width */
   z-index: 1030; /* Bootstrap default for sticky navbar */
+  border-bottom: 1px solid wheat;
 }
 
 /* Hamburger icon styling */

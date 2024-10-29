@@ -6,33 +6,35 @@
 }
 
 .panel {
-  padding: 0;
-  margin: 0;
+  padding: 10px;
   overflow-y: auto; /* Enable scrolling if content overflows */
 }
 
 /* Styles for the left panel */
 .panel-left {
   width: 20%; /* Left panel width */
+  margin-top: -20px;
   border-right: 1px solid #ccc; 
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   height: auto; /* Allow height to be auto */
-  padding: 10px;
-  padding-left: 0;
+  padding-top: 15px;
 }
 
 /* Styles for the center panel */
 .panel-center {
   flex: 1; /* Grow to fill available space */
+  margin-top: -17px;
   margin-bottom: 20px; /* Space below center panel */
-  padding: 10px;
 }
 
 /* Styles for the right panel */
 .panel-right {
   width: 100%; /* Right panel width in flex column */
   border: 1px solid wheat;
-  padding: 10px;
+  background-color: rgb(107, 87, 36);
+  margin-top: -5px;
+  padding-top: 0;
+  margin-right: 20px;
 }
 
 /* Hamburger menu styles */
@@ -113,6 +115,7 @@
     height: 100vh; /* Full height minus the top offset */
     overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
     z-index: 10; /* Keep above other elements */
+    padding-top: 10px;
     padding-bottom: 100px; /* used this trick to show the scroll before bottom width touches content */
   }
 
@@ -122,11 +125,13 @@
     flex: 1; /* Take the remaining width */
     height: auto;/* Full height of the viewport */
     margin-left: 200px;
+    margin-top: -20px;
   }
 
   .panel-center {
     width: 100%; /* Center panel takes 60% */
     overflow-y: auto; /* Allow scrolling if content exceeds height */
+    padding: 10px;
   }
 
   .panel-right {
