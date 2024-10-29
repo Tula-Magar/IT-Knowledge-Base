@@ -20,7 +20,7 @@ function Content({ searchTerm }) {
     <div>
       <h1 style={{textAlign: "center", padding: "20px"}}>Content</h1>
       {filteredContent.map((item) => (
-    <div key={item.id} style={{ marginBottom: "10px", paddingLeft:"15px"}}>
+    <div key={item.id} style={{ marginBottom: "10px"}}>
         <Link to={`/content/${item.id}`} style={{ textDecoration: "none" }}>
             {item.title}
         </Link>
