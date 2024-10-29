@@ -7,8 +7,7 @@
 
 .panel {
   padding: 10px;
-  /* border-left: 1px solid #ccc;  */
-  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
+ 
   overflow-y: auto; /* Enable scrolling if content overflows */
 }
 

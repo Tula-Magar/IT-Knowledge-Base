@@ -18,14 +18,15 @@ function Content({ searchTerm }) {
 
   return (
     <div>
-      <h1>Content</h1>
-      <ul>
-        {filteredContent.map(item => (
-          <li key={item.id}>
-            <Link to={`/content/${item.id}`}>{item.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <h1 style={{textAlign: "center", padding: "20px"}}>Content</h1>
+      {filteredContent.map((item) => (
+    <div key={item.id} style={{ marginBottom: "10px", paddingLeft:"15px"}}>
+        <Link to={`/content/${item.id}`} style={{ textDecoration: "none" }}>
+            {item.title}
+        </Link>
+    </div>
+))}
+
     </div>
   );
 }

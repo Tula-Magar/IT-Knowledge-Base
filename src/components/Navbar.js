@@ -48,7 +48,7 @@ function Navbar() {
             </li>
           </ul>
           {/* Conditionally render the search form only on the /content page */}
-          {location.pathname === '/content' && (
+          {(location.pathname === '/content' || location.pathname.startsWith('/content/')) && (
             <form className="d-flex" onSubmit={handleSearchSubmit}>
               <input
                 type="search"

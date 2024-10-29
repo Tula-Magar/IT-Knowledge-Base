@@ -18,8 +18,9 @@
 .App {
   background-color: var(--background-color);
   color: var(--text-color);
-  width: 75%;
-  margin: auto;
+  margin: 0 auto;
+  max-width: 1200px; /* Limit width */
+
 }
 
 @media (max-width: 768px) {
