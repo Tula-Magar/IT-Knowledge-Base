@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import "./Navbar.css";
 import ThemeToggle from "./ThemeToggle";
 
 function Navbar() {
   const [searchTerm, setSearchTerm] = useState('');
+  const location = useLocation();
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -46,17 +47,20 @@ function Navbar() {
               <Link className="nav-link text-light" to="/content">Content</Link>
             </li>
           </ul>
-          <form className="d-flex" onSubmit={handleSearchSubmit}>
-            <input
-              type="search"
-              className="form-control me-2"
-              placeholder="Search"
-              aria-label="Search"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-            <button className="btn btn-outline-light" type="submit">Search</button>
-          </form>
+          {/* Conditionally render the search form only on the /content page */}
+          {location.pathname === '/content' && (
+            <form className="d-flex" onSubmit={handleSearchSubmit}>
+              <input
+                type="search"
+                className="form-control me-2"
+                placeholder="Search"
+                aria-label="Search"
+                value={searchTerm}
+                onChange={handleSearchChange}
+              />
+              <button className="btn btn-outline-light" type="submit">Search</button>
+            </form>
+          )}
         </div>
       </div>
     </nav>
