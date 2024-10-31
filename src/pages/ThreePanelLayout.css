@@ -46,11 +46,11 @@
 @media (max-width: 768px) {
   .three-panel-layout {
     flex-direction: column; /* Stack panels vertically */
-    max-width: 90%; /* Full width on smaller screens */
+    max-width: 100%; /* Full width on smaller screens */
     margin: auto;
   }
   .panel {
-    padding: 0px;
+    padding: 10px;
     overflow-y: auto; /* Enable scrolling if content overflows */
   }
 
@@ -62,33 +62,36 @@
   .hamburger-menu {
     display: block; /* Show hamburger on small screens */
     position: fixed; /* Keep it fixed on top */
-    top: 8px;
+    top: 7px;
     left: 25px; /* Adjust position as needed */
     cursor: pointer;
-    font-size: 24px; /* Size of the hamburger */
+    font-size: 21px; /* Size of the hamburger */
     z-index: 1040; /* Ensure it overlaps other elements */
   }
 
   .main-content-container {
     width: 100%; /* Full width for center and right panels */
+    margin-top: 37px;
   }
 
 .hamburger-menu.close {
   font-size: 24px; /* Size of the close icon */
 }
 
-
   .panel-center{
-    width: 100%; /* Full width for center and right panels */
-    margin-left: 0px;
+    width: calc(100% - 54px); /* Adjust width to account for margin */
+    margin-left: 26px;
+    padding-right: 0px;
+    padding-left: 0px;
     margin-bottom: 20px; /* Space between panels */
   }
-
   .panel-right {
-    width: 100%; /* Full width for center and right panels */
-    padding: 10px 10px;
-    margin-bottom: 20px; /* Space between panels */
+    width: calc(100% - 47px); /* Adjust width to account for margin */
+    margin-left: 25px;
+    padding: 10px;
+    margin-bottom: 20px;
   }
+  
   /* Open the menu below the navbar */
   .panel-left.open {
     display: block; /* Show left panel when hamburger menu is active */
@@ -133,24 +136,26 @@
   }
 
   .panel-center {
-    width: 100%; /* Center panel takes 60% */
+    width: calc(100% - 31px); 
+    margin-left: 10px;
     overflow-y: auto; /* Allow scrolling if content exceeds height */
     padding: 10px;
+    padding-left: 0px;
+    padding-top: 26px;
   }
 
   .panel-right {
-    margin: 0 auto;
-    width: 97%; /* Right panel takes 40% */
+    width: calc(100% - 31px); 
+    margin-left: 10px;
     padding: 10px 10px;
     overflow-y: auto; /* Allow scrolling if content exceeds height */    
   }
 }
-
-
 /* Large Screens */
 @media (min-width: 1025px) {
   .three-panel-layout {
     flex-direction: row; /* Align panels horizontally */
+    padding-top: 15px;
   }
 
   .panel-left {

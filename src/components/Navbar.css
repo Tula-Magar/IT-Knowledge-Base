@@ -5,12 +5,14 @@
   max-width: 1200px; /* Limit width */
   z-index: 1030; /* Bootstrap default for sticky navbar */
   border-bottom: 1px solid wheat;
+  background-color: rgb(37, 38, 39);
 }
 
 /* Hamburger icon styling */
 .navbar-toggler {
   border: none; /* Remove border */
   background-color: transparent; /* Make background transparent */
+  margin-left: auto;
 }
 
 .navbar-toggler-icon {
@@ -69,12 +71,7 @@ button:hover {
   background-color: #333;
 }
 /* Add this class to center MyApp */
-.centered-app {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 0;
-}
+
 
 @media (max-width: 768px) {
   .navbar {
@@ -85,5 +82,11 @@ button:hover {
   }
   .smaller{
     text-align: center;
+  }
+  .centered-app {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
   }
 }

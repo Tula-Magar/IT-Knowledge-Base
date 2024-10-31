@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
+import 'bootstrap/dist/js/bootstrap.bundle.min'; 
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({ onSearch }) { 
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -13,8 +15,11 @@ function Navbar() {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    // Implement your search logic here
-    console.log(searchTerm); // Just for demonstration
+    if (onSearch) {
+      onSearch(searchTerm); 
+    }
+    navigate('/content'); 
+    // closeNavbar();
   };
 
   const toggleNavbar = () => {
@@ -23,13 +28,21 @@ function Navbar() {
 
   const closeNavbar = () => {
     setIsNavbarOpen(false);
-    window.scrollTo(0, 0); // Scroll to the top of the page
+    window.scrollTo(0, 0); 
   };
+
+
+  const isContentIdPage = location.pathname.startsWith('/content/') && location.pathname.split('/').length === 3;
 
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
       <div className="container-fluid" style={{ paddingLeft: "10px", marginRight: "10px" }}>
-        <Link className="navbar-brand text-light smaller" to="/" onClick={closeNavbar}>MyApp</Link>
+        <Link
+          className={`navbar-brand text-light smaller ${isContentIdPage ? 'centered-app' : ''}`}
+          to="/"
+        >
+          MyApp
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -55,20 +68,17 @@ function Navbar() {
               <Link className="nav-link text-light" to="/content" onClick={closeNavbar}>Content</Link>
             </li>
           </ul>
-          {/* Conditionally render the search form only on the /content page */}
-          {(location.pathname === '/content' || location.pathname.startsWith('/content/')) && (
-            <form className="d-flex" onSubmit={handleSearchSubmit}>
-              <input
-                type="search"
-                className="form-control me-2"
-                placeholder="Search"
-                aria-label="Search"
-                value={searchTerm}
-                onChange={handleSearchChange}
-              />
-              <button className="btn btn-outline-light" type="submit">Search</button>
-            </form>
-          )}
+          <form className="d-flex" onSubmit={handleSearchSubmit}>
+            <input
+              type="search"
+              className="form-control me-2"
+              placeholder="Search"
+              aria-label="Search"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <button className="btn btn-outline-light" type="submit">Search</button>
+          </form>
         </div>
       </div>
     </nav>
