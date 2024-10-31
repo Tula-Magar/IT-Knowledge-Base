@@ -27,9 +27,7 @@
 @media (max-width: 768px) {
   .App {
     background-color: var(--background-color);
-    color: var(--text-color);
-    width: 90%;
-    margin: auto;
+    color: var(--text-color)
   }
 }
 .container {

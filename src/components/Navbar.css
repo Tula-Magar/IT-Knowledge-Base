@@ -72,8 +72,11 @@ button:hover {
 @media (max-width: 768px) {
   .navbar {
     display: flex;
-    justify-content: space-between; /* Adjusts spacing between items */
-    align-items: center; /* Center items vertically */
-    margin-left: 100px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: none; /* Use 'none' or '0' */
+  }
+  .smaller{
+    text-align: center;
   }
 }

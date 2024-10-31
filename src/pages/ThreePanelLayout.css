@@ -46,7 +46,8 @@
 @media (max-width: 768px) {
   .three-panel-layout {
     flex-direction: column; /* Stack panels vertically */
-    max-width: 100%; /* Full width on smaller screens */
+    max-width: 90%; /* Full width on smaller screens */
+    margin: auto;
   }
   .panel {
     padding: 0px;
@@ -60,12 +61,12 @@
   /* Move hamburger to the left */
   .hamburger-menu {
     display: block; /* Show hamburger on small screens */
-    position: absolute;
-    position: fixed;
-    top: 15px;
+    position: fixed; /* Keep it fixed on top */
+    top: 8px;
+    left: 25px; /* Adjust position as needed */
     cursor: pointer;
-    font-size: 20px;
-    z-index: 1000;
+    font-size: 24px; /* Size of the hamburger */
+    z-index: 1040; /* Ensure it overlaps other elements */
   }
 
   .main-content-container {
@@ -77,13 +78,17 @@
 }
 
 
-  .panel-center,
-  .panel-right {
+  .panel-center{
     width: 100%; /* Full width for center and right panels */
     margin-left: 0px;
     margin-bottom: 20px; /* Space between panels */
   }
 
+  .panel-right {
+    width: 100%; /* Full width for center and right panels */
+    padding: 10px 10px;
+    margin-bottom: 20px; /* Space between panels */
+  }
   /* Open the menu below the navbar */
   .panel-left.open {
     display: block; /* Show left panel when hamburger menu is active */
@@ -125,7 +130,6 @@
     flex: 1; /* Take the remaining width */
     height: auto;/* Full height of the viewport */
     margin-left: 200px;
-    margin-top: -20px;
   }
 
   .panel-center {
@@ -135,8 +139,10 @@
   }
 
   .panel-right {
-    width: 100%; /* Right panel takes 40% */
-    overflow-y: auto; /* Allow scrolling if content exceeds height */
+    margin: 0 auto;
+    width: 97%; /* Right panel takes 40% */
+    padding: 10px 10px;
+    overflow-y: auto; /* Allow scrolling if content exceeds height */    
   }
 }
 
