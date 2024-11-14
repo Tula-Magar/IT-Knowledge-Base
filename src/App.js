@@ -6,6 +6,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Content from './pages/Content';
 import ContentDetail from './pages/ContentDetail';
+import Footer from './components/Footer';
 import "./App.css";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path="/content" element={<Content searchTerm={searchTerm}/>} /> {/* Pass searchTerm to Content */}
             <Route path="/content/:id" element={<ContentDetail />} />
           </Routes>
+          <Footer/>
         </Router>
       </div>
     </div>
