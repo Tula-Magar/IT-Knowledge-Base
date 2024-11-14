@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -19,12 +19,12 @@ function App() {
     <div id="app-wrapper">
       <div className="App">
         <Router>
-          <Navbar onSearch={handleSearch} /> {/* Pass the handleSearch function */}
+        <Navbar onSearch={handleSearch} resetSearch={() => setSearchTerm('')} />        {/* Pass the handleSearch function */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/content" element={<Content searchTerm={searchTerm} />} /> {/* Pass searchTerm to Content */}
+            <Route path="/content" element={<Content searchTerm={searchTerm}/>} /> {/* Pass searchTerm to Content */}
             <Route path="/content/:id" element={<ContentDetail />} />
           </Routes>
         </Router>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import './ThreePanelLayout.css';
 
 function ContentDetail({ searchTerm }) { // Accept searchTerm as a prop
   const { id } = useParams();

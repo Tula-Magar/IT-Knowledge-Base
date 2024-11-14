@@ -3,23 +3,23 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'; // Import use
 import 'bootstrap/dist/js/bootstrap.bundle.min'; 
 import "./Navbar.css";
 
-function Navbar({ onSearch }) { 
+function Navbar({ onSearch, resetSearch }) { 
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+  const closeNavbarAndResetSearch = () => {
+    resetSearch(); // Reset the search term
+    setIsNavbarOpen(false); // Close the Navbar
+    window.scrollTo(0, 0); // Scroll to top
   };
 
-  const handleSearchSubmit = (event) => {
-    event.preventDefault();
-    if (onSearch) {
-      onSearch(searchTerm); 
-    }
-    navigate('/content'); 
-    // closeNavbar();
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    onSearch(searchTerm); // Pass the search term to the parent (App.js)
+    setSearchTerm(''); // Clear the search bar
+    navigate('/content'); // Navigate to the content page
   };
 
   const toggleNavbar = () => {
@@ -32,13 +32,13 @@ function Navbar({ onSearch }) {
   };
 
 
-  const isContentIdPage = location.pathname.startsWith('/content/') && location.pathname.split('/').length === 3;
+  const isContentPages = location.pathname === '/content' || location.pathname.startsWith('/content/');
 
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
       <div className="container-fluid" style={{ paddingLeft: "10px", marginRight: "10px" }}>
         <Link
-          className={`navbar-brand text-light smaller ${isContentIdPage ? 'centered-app' : ''}`}
+          className={`navbar-brand text-light smaller ${isContentPages ? 'centered-app' : ''}`}
           to="/"
         >
           MyApp
@@ -65,8 +65,18 @@ function Navbar({ onSearch }) {
               <Link className="nav-link text-light" to="/contact" onClick={closeNavbar}>Contact</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/content" onClick={closeNavbar}>Content</Link>
+              <Link
+                className="nav-link text-light"
+                to="/content"
+                onClick={() => {
+                  closeNavbarAndResetSearch();
+                  closeNavbar();
+                }}
+              >
+                Content
+              </Link>
             </li>
+
           </ul>
           <form className="d-flex" onSubmit={handleSearchSubmit}>
             <input
@@ -75,8 +85,7 @@ function Navbar({ onSearch }) {
               placeholder="Search"
               aria-label="Search"
               value={searchTerm}
-              onChange={handleSearchChange}
-            />
+              onChange={(e) => setSearchTerm(e.target.value)}/>
             <button className="btn btn-outline-light" type="submit">Search</button>
           </form>
         </div>
