@@ -20,9 +20,9 @@ function App() {
     <div id="app-wrapper">
       <div className="App">
         <Router>
-        <Navbar onSearch={handleSearch} resetSearch={() => setSearchTerm('')} />        {/* Pass the handleSearch function */}
+        <Navbar onSearch={handleSearch} />        {/* Pass the handleSearch function */}
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home onSearch={handleSearch} resetSearch={() => setSearchTerm('')} />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/content" element={<Content searchTerm={searchTerm}/>} /> {/* Pass searchTerm to Content */}
