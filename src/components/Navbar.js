@@ -36,7 +36,7 @@ function Navbar({ onSearch, resetSearch }) {
 
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
-      <div className="container-fluid" style={{ paddingLeft: "10px", marginRight: "10px" }}>
+      <div className="container-fluid">
         <Link
           className={`navbar-brand text-light smaller ${isContentPages ? 'centered-app' : ''}`}
           to="/"

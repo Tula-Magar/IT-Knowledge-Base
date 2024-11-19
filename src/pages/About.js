@@ -70,7 +70,7 @@ function About() {
           Become a part of our growing community. Together, we can make
           knowledge accessible to all.
         </p>
-        <Link to="/contact" className="btn primary">
+        <Link to="/contact" className="btnLearnMore">
           Contact Us
         </Link>
       </section>

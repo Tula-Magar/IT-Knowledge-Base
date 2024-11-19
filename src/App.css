@@ -5,6 +5,16 @@
   --container-bg-color: #000000; /* Keep containers black to match the background */
   --input-bg-color: #1e1e1e;   /* Dark gray for input fields */
 }
+/* * {
+  outline: 1px solid red;
+}  */
+
+* {
+  box-sizing: border-box; /* Ensures padding and borders are included in element width/height */
+  margin: 0;
+  padding: 0;
+}
+
 
 #app-wrapper {
   background-color: var(--background-color);
@@ -18,7 +28,8 @@
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0 auto;
-  padding: 0;
+  padding: 10px;
+  padding-top: 0px;
   max-width: 1200px; /* Limit width */
 }
 

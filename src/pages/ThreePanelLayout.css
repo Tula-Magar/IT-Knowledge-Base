@@ -1,20 +1,22 @@
 .three-panel-layout {
   display: flex; /* Use flexbox for layout */
   margin: 0 auto;
-  max-width: 1200px; /* Limit width */
+  max-width: 100%; /* Limit width */
 }
 
 .panel {
   padding: 10px;
+  padding-right: 0px;
   overflow-y: auto; /* Enable scrolling if content overflows */
 }
 
 /* Styles for the left panel */
 .panel-left {
   width: 20%; /* Left panel width */
-  margin-top: -20px;
+  margin-top: -19px;
   height: auto; /* Allow height to be auto */
   padding-top: 15px;
+  margin-left: -10px;
 }
 
 .main-content-container {
@@ -27,7 +29,7 @@
 /* Styles for the center panel */
 .panel-center {
   flex: 1; /* Grow to fill available space */
-  margin-top: -17px;
+  margin-top: -16px;
   margin-bottom: 20px; /* Space below center panel */
 }
 
@@ -36,9 +38,9 @@
   width: 100%; /* Right panel width in flex column */
   border: 1px solid wheat;
   background-color: rgb(107, 87, 36);
-  margin-top: -5px;
+  margin-top: -4px;
   padding-top: 0;
-  margin-right: 20px;
+  
 }
 
 /* Hamburger menu styles */
@@ -84,15 +86,15 @@
   }
 
   .panel-center {
-    width: calc(100% - 54px); /* Adjust width to account for margin */
-    margin-left: 26px;
+    width: calc(100% - 15px); /* Adjust width to account for margin */
+    margin-left: 15px;
     padding-right: 0px;
     padding-left: 0px;
     margin-bottom: 20px; /* Space between panels */
   }
   .panel-right {
-    width: calc(100% - 47px); /* Adjust width to account for margin */
-    margin-left: 25px;
+    width: calc(100% - 15px); /* Adjust width to account for margin */
+    margin-left: 15px;
     padding: 10px;
     margin-bottom: 20px;
   }
@@ -101,14 +103,14 @@
   .panel-left.open {
     display: block; /* Show left panel when hamburger menu is active */
     position: absolute;
-    top: 60px; /* Adjust the top value to open below the navbar */
-    left: 0;
+    top: 70px; /* Adjust the top value to open below the navbar */
+    left: 10;
     width: 100%; /* Full width below the navbar */
     height: auto; /* Adjust height to content */
     background-color: white;
     z-index: 1000; /* Ensure it overlaps other content */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    background-color: #ccc;
+    color: #000;
   }
 }
 
@@ -123,9 +125,8 @@
   .panel-left {
     width: 200px; /* Left panel takes 20% width */
     position: fixed; /* Fixed positioning */
-    top: 80px; /* Stick to the top with a 10vh margin */
+    top: 83px; /* Stick to the top with a 10vh margin */
     bottom: -10; /* Stick to the bottom */
-
     overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
     padding-top: 10px;
     padding-bottom: 100px; /* used this trick to show the scroll before bottom width touches content */
@@ -140,16 +141,15 @@
   }
 
   .panel-center {
-    width: calc(100% - 31px);
+    width: calc(100% - 18px);
     margin-left: 10px;
+    margin-right: -10px;
     overflow-y: auto; /* Allow scrolling if content exceeds height */
-    padding: 10px;
-    padding-left: 0px;
     padding-top: 26px;
   }
 
   .panel-right {
-    width: calc(100% - 31px);
+    width: calc(100% - 10px);
     margin-left: 10px;
     padding: 10px 10px;
     overflow-y: auto; /* Allow scrolling if content exceeds height */
@@ -174,11 +174,12 @@
   }
   .panel-center {
     width: 60%; /* Center panel takes 60% */
-    margin-top: 1px;
+    margin-top: 3px;
   }
 
   .panel-right {
     width: 30%; /* Right panel takes 20% */
-    margin-top: 13px;
+    margin-top: 12px;
+    margin-right: -10px;
   }
 }

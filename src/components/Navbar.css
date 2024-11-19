@@ -1,11 +1,25 @@
 /* Navbar Styling */
 .navbar {
-  padding-left: 0px;
   margin: 0 auto;
-  max-width: 1200px; /* Limit width */
+  width: 100%; /* Ensures it doesn't exceed the viewport */
+  overflow: hidden; /* Prevents content from overflowing */
+  padding: 0; /* Adds some spacing for content */
   z-index: 1030; /* Bootstrap default for sticky navbar */
   border-bottom: 1px solid wheat;
   background-color: rgb(37, 38, 39);
+}
+.container-fluid, .container {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.col {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Hamburger icon styling */
