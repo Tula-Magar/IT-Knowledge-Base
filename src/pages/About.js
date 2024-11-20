@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
-import './HomeAndAbout.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import "./HomeAndAbout.css";
 
 function About() {
   return (
@@ -29,8 +29,8 @@ function About() {
         <p>
           From humble beginnings, we envisioned a space where users could find
           accurate and comprehensive technical guides. This platform grew from
-          that vision into a resource designed for everyone, regardless of
-          their expertise.
+          that vision into a resource designed for everyone, regardless of their
+          expertise.
         </p>
       </section>
 

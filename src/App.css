@@ -1,9 +1,9 @@
 :root {
   --background-color: rgb(37, 38, 39); /* Set background color to black */
-  --text-color: #e0e0e0;       /* Light gray text for readability on black */
-  --link-color: #82aaff;       /* Soft blue for links */
+  --text-color: #e0e0e0; /* Light gray text for readability on black */
+  --link-color: #82aaff; /* Soft blue for links */
   --container-bg-color: #000000; /* Keep containers black to match the background */
-  --input-bg-color: #1e1e1e;   /* Dark gray for input fields */
+  --input-bg-color: #1e1e1e; /* Dark gray for input fields */
 }
 /* * {
   outline: 1px solid red;
@@ -14,7 +14,6 @@
   margin: 0;
   padding: 0;
 }
-
 
 #app-wrapper {
   background-color: var(--background-color);

@@ -1,5 +1,5 @@
 // ../content/components/component-myComponent.js
-import React from 'react';
+import React from "react";
 
 const MyComponent = () => (
   <div>

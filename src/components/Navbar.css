@@ -8,7 +8,8 @@
   border-bottom: 1px solid wheat;
   background-color: rgb(37, 38, 39);
 }
-.container-fluid, .container {
+.container-fluid,
+.container {
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
@@ -50,7 +51,7 @@
 .navbar-toggler:after,
 .navbar-toggler span {
   display: block;
-  content: '';
+  content: "";
   width: 20px; /* Width of the hamburger lines */
   height: 2px; /* Height of the hamburger lines */
   background-color: #ffffff; /* White color for the icon */
@@ -86,7 +87,6 @@ button:hover {
 }
 /* Add this class to center MyApp */
 
-
 @media (max-width: 768px) {
   .navbar {
     display: flex;
@@ -94,7 +94,7 @@ button:hover {
     align-items: center;
     border-bottom: none; /* Use 'none' or '0' */
   }
-  .smaller{
+  .smaller {
     text-align: center;
   }
   .centered-app {

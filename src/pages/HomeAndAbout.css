@@ -1,8 +1,9 @@
-.home-container, .about-container {
+.home-container,
+.about-container {
   text-align: center;
 }
 
-.hero{
+.hero {
   background: linear-gradient(120deg, #6c63ff, #3b3b98);
   color: white;
   padding: 70px 40px;
@@ -54,12 +55,12 @@
   gap: 20px;
 }
 
-.btnLearnMore{
+.btnLearnMore {
   background-color: #3b3b98;
   padding: 8px;
   border-radius: 8px;
   text-decoration: none;
-  color:aliceblue;
+  color: aliceblue;
 }
 
 .btnLearnMore:hover {
@@ -68,18 +69,17 @@
   transition: all 0.3s ease;
 }
 
-
-.featured-content{
+.featured-content {
   margin-bottom: 100px;
 }
-.featured-content h2{
+.featured-content h2 {
   margin-top: 100px;
 }
 
-.featured-list{
+.featured-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content:center;
+  justify-content: center;
   gap: 20px;
 }
 
@@ -102,6 +102,41 @@
   color: #d1d1d1;
 }
 
+.statistics,
+.faq,
+.categories,
+.feedback {
+  margin: 40px 0;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.category-item {
+  text-decoration: none;
+}
+
+.media-gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.media-gallery img {
+  width: 150px; /* Adjust based on your design */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
 .testimonials {
   margin: 40px 0;
   padding: 20px;
@@ -110,7 +145,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.testimonials h2{
+.testimonials h2 {
   margin-bottom: 40px;
 }
 .testimonial-list blockquote {
@@ -136,7 +171,7 @@
   text-align: center;
 }
 
-.cta h2{
+.cta h2 {
   margin-bottom: 40px;
 }
 
@@ -156,7 +191,7 @@
   color: white;
 }
 
-.cta p{
+.cta p {
   margin-bottom: 30px;
 }
 @media (max-width: 768px) {
@@ -166,7 +201,7 @@
     width: 100%;
   }
 
-  .featured-item{
+  .featured-item {
     width: 100%;
   }
 }
