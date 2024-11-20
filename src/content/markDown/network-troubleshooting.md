@@ -28,3 +28,14 @@ Or embed directly:
 ## Code
 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+
+# Example Markdown
+
+This is a code block:
+
+```javascript
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+console.log(greet("World"));
+```

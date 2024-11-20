@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import contentList from "../Data/contentDataList";
+import Pagination from "./Pagination";
 import { Helmet } from "react-helmet";
 import "./HomeAndAbout.css";
 
 function Home({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
 
   const handleSearchSubmit = (e) => {
@@ -13,6 +16,17 @@ function Home({ onSearch }) {
     setSearchTerm("");
     navigate("/content");
   };
+
+  //remove duplicate
+  const itemsPerPage = 10; // Number of items per page
+
+  // Filter and remove duplicate categories
+  const uniqueCategories = Array.from(
+    new Map(contentList.map((item) => [item.title, item])).values()
+  );
+  const filteredCategories = uniqueCategories.filter((item) =>
+    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="home-container">
@@ -35,6 +49,11 @@ function Home({ onSearch }) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <datalist id="suggestions">
+            <option value="Topic 1" />
+            <option value="Topic 2" />
+            <option value="Networking" />
+          </datalist>
           <button type="submit">Search</button>
         </form>
         <div className="hero-buttons">
@@ -67,17 +86,24 @@ function Home({ onSearch }) {
 
       <section className="categories">
         <h2>Browse by Categories</h2>
-        <div className="category-list">
-          <Link to="/category/it-basics" className="category-item">
-            IT Basics
-          </Link>
-          <Link to="/category/networking" className="category-item">
-            Networking
-          </Link>
-          <Link to="/category/software" className="category-item">
-            Software
-          </Link>
-        </div>
+        {/* Search Bar */}
+        <input
+          type="text"
+          placeholder="Search categories..."
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+            setCurrentPage(1); // Reset to the first page on search
+          }}
+          className="search-bar"
+        />
+        {/* Pagination */}
+        <Pagination
+          data={filteredCategories}
+          itemsPerPage={itemsPerPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </section>
 
       <section className="media-highlights">
@@ -195,6 +221,10 @@ function Home({ onSearch }) {
               lifesaver!"
             </p>
             <cite>- User A</cite>
+            <img
+              src="https://via.placeholder.com/150"
+              alt="Placeholder Tutorial 1"
+            />
           </blockquote>
           <blockquote>
             <p>
@@ -202,8 +232,20 @@ function Home({ onSearch }) {
               effectively."
             </p>
             <cite>- User B</cite>
+            <img
+              src="https://via.placeholder.com/150"
+              alt="Placeholder Tutorial 1"
+            />
           </blockquote>
         </div>
+      </section>
+
+      <section className="community">
+        <h2>Our Community</h2>
+        <p>Join our growing network of contributors and users.</p>
+        <Link to="/community" className="btnLearnMore">
+          Explore Community
+        </Link>
       </section>
 
       {/* Footer CTA */}

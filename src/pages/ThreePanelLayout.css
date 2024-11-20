@@ -140,9 +140,7 @@
   }
 
   .panel-center {
-    width: calc(100% - 18px);
-    margin-left: 10px;
-    margin-right: -10px;
+    width: calc(100% - 1px);
     overflow-y: auto; /* Allow scrolling if content exceeds height */
     padding-top: 26px;
   }
@@ -174,6 +172,7 @@
   .panel-center {
     width: 60%; /* Center panel takes 60% */
     margin-top: 3px;
+    margin-right: 10px;
   }
 
   .panel-right {

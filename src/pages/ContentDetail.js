@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import contentData from "../Data/contentDataList";
 
 function ContentDetail({ searchTerm }) {
-  // Accept searchTerm as a prop
   const { id } = useParams();
   const [content, setContent] = useState(null);
   const [isMarkdown, setIsMarkdown] = useState(true);
@@ -36,7 +38,6 @@ function ContentDetail({ searchTerm }) {
     loadContent();
   }, [id]);
 
-  // Filter content based on the search term if content is a markdown string
   const filteredContent =
     isMarkdown && searchTerm
       ? content && content.toLowerCase().includes(searchTerm.toLowerCase())
@@ -44,17 +45,13 @@ function ContentDetail({ searchTerm }) {
         : "# No matching content found"
       : content;
 
-  // Close the left panel when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        leftPanelRef.current &&
-        !leftPanelRef.current.contains(event.target)
-      ) {
-        setIsLeftPanelOpen(false);
-      }
-    };
+  const handleClickOutside = (event) => {
+    if (leftPanelRef.current && !leftPanelRef.current.contains(event.target)) {
+      setIsLeftPanelOpen(false);
+    }
+  };
 
+  useEffect(() => {
     if (isLeftPanelOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
@@ -71,6 +68,13 @@ function ContentDetail({ searchTerm }) {
     setIsLeftPanelOpen((prev) => !prev);
   };
 
+  const relatedContent = contentData.filter(
+    (item) =>
+      item.id !== id &&
+      typeof content === "string" &&
+      item.title.includes(content.split(" ")[0])
+  );
+
   return (
     <div className="three-panel-layout">
       <div
@@ -84,8 +88,19 @@ function ContentDetail({ searchTerm }) {
         ref={leftPanelRef}
         className={`panel panel-left ${isLeftPanelOpen ? "open" : ""}`}
       >
-        <h2>Panel 1</h2>
-        <p>This can be additional navigation or static content.</p>
+        <h2>Categories</h2>
+        <ul>
+          {contentData.map((item) => (
+            <li key={item.id}>
+              <Link
+                to={`/content/${item.id}`}
+                onClick={() => setIsLeftPanelOpen(false)}
+              >
+                {item.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className="main-content-container">
@@ -93,7 +108,29 @@ function ContentDetail({ searchTerm }) {
           <h2>Main Content</h2>
           <div className="content-display">
             {isMarkdown ? (
-              <ReactMarkdown>{filteredContent}</ReactMarkdown>
+              <ReactMarkdown
+                components={{
+                  code({ node, inline, className, children, ...props }) {
+                    const match = /language-(\w+)/.exec(className || "");
+                    return !inline && match ? (
+                      <SyntaxHighlighter
+                        style={dark}
+                        language={match[1]}
+                        PreTag="div"
+                        {...props}
+                      >
+                        {String(children).replace(/\n$/, "")}
+                      </SyntaxHighlighter>
+                    ) : (
+                      <code className={className} {...props}>
+                        {children}
+                      </code>
+                    );
+                  },
+                }}
+              >
+                {filteredContent}
+              </ReactMarkdown>
             ) : (
               content && React.createElement(content)
             )}
@@ -101,46 +138,12 @@ function ContentDetail({ searchTerm }) {
         </div>
 
         <div className="panel panel-right">
-          <h2>Panel 3</h2>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-
-          <p>Another panel for related content or actions.</p>
-
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
-          <p>Another panel for related content or actions.</p>
+          <h2>Related Content</h2>
+          {relatedContent.map((item) => (
+            <p key={item.id}>
+              <Link to={`/content/${item.id}`}>{item.title}</Link>
+            </p>
+          ))}
         </div>
       </div>
     </div>
