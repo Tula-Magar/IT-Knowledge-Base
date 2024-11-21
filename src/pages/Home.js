@@ -67,20 +67,22 @@ function Home({ onSearch }) {
       </section>
 
       <section
-        className="recent-articles"
+        className="recent-content"
         style={{ marginTop: "100px", marginBottom: "100px" }}
       >
-        <h2>Latest Articles</h2>
+        <h2>Latest Content</h2>
         <div className="featured-list">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="featured-item">
-              <h3>Article Title {i + 1}</h3>
-              <p>Snippet or summary of the article...</p>
-              <Link to={`/article/${i}`} className="btnLearnMore">
-                Read More
-              </Link>
-            </div>
-          ))}
+          {["network-troubleshooting", "password-reset", "api-integration"].map(
+            (item, index) => (
+              <div key={index} className="featured-item">
+                <h3>Content Title {index + 1}</h3>
+                <p>Snippet or summary of the content...</p>
+                <Link to={`/content/${item}`} className="btnLearnMore">
+                  Read More
+                </Link>
+              </div>
+            )
+          )}
         </div>
       </section>
 
