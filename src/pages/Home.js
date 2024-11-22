@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import contentList from "../Data/contentDataList";
 import Pagination from "./Pagination";
@@ -28,6 +28,23 @@ function Home({ onSearch }) {
     item.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Add this script to dynamically increase numbers
+  useEffect(() => {
+    const stats = document.querySelectorAll(".stat-item h3");
+    stats.forEach((stat) => {
+      let target = +stat.getAttribute("data-target");
+      let count = 0;
+      const increment = target / 100;
+      const updateCounter = () => {
+        count += increment;
+        stat.innerText =
+          count >= target ? `${Math.ceil(target)}+` : Math.ceil(count);
+        if (count < target) setTimeout(updateCounter, 30);
+      };
+      updateCounter();
+    });
+  }, []);
+
   return (
     <div className="home-container">
       <Helmet>
@@ -39,7 +56,7 @@ function Home({ onSearch }) {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="hero">
+      <main className="hero">
         <h1>Welcome to Our Knowledge Base</h1>
         <p>Your one-stop solution to discover and explore valuable content.</p>
         <form className="hero-search" onSubmit={handleSearchSubmit}>
@@ -64,7 +81,7 @@ function Home({ onSearch }) {
             Learn More
           </Link>
         </div>
-      </section>
+      </main>
 
       <section
         className="recent-content"
@@ -113,14 +130,17 @@ function Home({ onSearch }) {
         <div className="media-gallery">
           <img
             src="https://via.placeholder.com/150"
+            loading="lazy"
             alt="Placeholder Tutorial 1"
           />
           <img
             src="https://via.placeholder.com/150"
+            loading="lazy"
             alt="Placeholder Tutorial 2"
           />
           <img
             src="https://via.placeholder.com/150"
+            loading="lazy"
             alt="Placeholder Tutorial 3"
           />
         </div>
@@ -130,15 +150,15 @@ function Home({ onSearch }) {
         <h2>Our Impact</h2>
         <div className="stats-grid">
           <div className="stat-item">
-            <h3>500+</h3>
+            <h3 data-target="500">0</h3>
             <p>Articles Published</p>
           </div>
           <div className="stat-item">
-            <h3>1M+</h3>
+            <h3 data-target="1000000">0</h3>
             <p>Searches Performed</p>
           </div>
           <div className="stat-item">
-            <h3>50k+</h3>
+            <h3 data-target="50000">0</h3>
             <p>Happy Users</p>
           </div>
         </div>
@@ -225,6 +245,7 @@ function Home({ onSearch }) {
             <cite>- User A</cite>
             <img
               src="https://via.placeholder.com/150"
+              loading="lazy"
               alt="Placeholder Tutorial 1"
             />
           </blockquote>
@@ -236,6 +257,7 @@ function Home({ onSearch }) {
             <cite>- User B</cite>
             <img
               src="https://via.placeholder.com/150"
+              loading="lazy"
               alt="Placeholder Tutorial 1"
             />
           </blockquote>
