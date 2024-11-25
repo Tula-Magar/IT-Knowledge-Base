@@ -45,6 +45,41 @@ function Home({ onSearch }) {
     });
   }, []);
 
+  useEffect(() => {
+    // Select all hidden sections and FAQ items
+    const sections = document.querySelectorAll(".hidden-section");
+    const faqItems = document.querySelectorAll(".faq .details-item");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target.classList.contains("details-item")) {
+              // Handle FAQ staggered animation
+              const delay = [...faqItems].indexOf(entry.target) * 500; // Stagger by 100ms
+              setTimeout(() => {
+                entry.target.classList.add("show");
+              }, delay);
+            } else {
+              // Handle general sections
+              entry.target.classList.add("show-section");
+            }
+          } else {
+            // Remove classes when items leave the viewport
+            entry.target.classList.remove("show");
+            entry.target.classList.remove("show-section");
+          }
+        });
+      },
+      { threshold: 0.2 } // Trigger when 20% of the section is visible
+    );
+
+    // Observe all elements
+    [...sections, ...faqItems].forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect(); // Cleanup observer
+  }, []);
+
   return (
     <div className="home-container">
       <Helmet>
@@ -56,7 +91,8 @@ function Home({ onSearch }) {
       </Helmet>
 
       {/* Hero Section */}
-      <main className="hero">
+      {/* Hero Section */}
+      <main className="hero hidden-section fade-in">
         <h1>Welcome to Our Knowledge Base</h1>
         <p>Your one-stop solution to discover and explore valuable content.</p>
         <form className="hero-search" onSubmit={handleSearchSubmit}>
@@ -66,11 +102,6 @@ function Home({ onSearch }) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <datalist id="suggestions">
-            <option value="Topic 1" />
-            <option value="Topic 2" />
-            <option value="Networking" />
-          </datalist>
           <button type="submit">Search</button>
         </form>
         <div className="hero-buttons">
@@ -83,10 +114,7 @@ function Home({ onSearch }) {
         </div>
       </main>
 
-      <section
-        className="recent-content"
-        style={{ marginTop: "100px", marginBottom: "100px" }}
-      >
+      <section className="recent-content hidden-section slide-up">
         <h2>Latest Content</h2>
         <div className="featured-list">
           {["network-troubleshooting", "password-reset", "api-integration"].map(
@@ -103,7 +131,7 @@ function Home({ onSearch }) {
         </div>
       </section>
 
-      <section className="categories">
+      <section className="categories zoom-in">
         <h2>Browse by Categories</h2>
         {/* Search Bar */}
         <input
@@ -146,7 +174,7 @@ function Home({ onSearch }) {
         </div>
       </section>
 
-      <section className="statistics">
+      <section className="statistics hidden-section zoom-in">
         <h2>Our Impact</h2>
         <div className="stats-grid">
           <div className="stat-item">
@@ -166,14 +194,25 @@ function Home({ onSearch }) {
 
       <section className="faq">
         <h2>Frequently Asked Questions</h2>
-        <details>
+        <details className="details-item">
           <summary>How do I search for articles?</summary>
           <p>
             Use the search bar at the top of the page to find articles by
             keywords.
           </p>
         </details>
-        <details>
+        <details className="details-item">
+          <summary>Can I contribute content?</summary>
+          <p>Yes! Contact us to learn how you can contribute.</p>
+        </details>
+        <details className="details-item">
+          <summary>How do I search for articles?</summary>
+          <p>
+            Use the search bar at the top of the page to find articles by
+            keywords.
+          </p>
+        </details>
+        <details className="details-item">
           <summary>Can I contribute content?</summary>
           <p>Yes! Contact us to learn how you can contribute.</p>
         </details>
