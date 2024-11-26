@@ -17,10 +17,8 @@ function Home({ onSearch }) {
     navigate("/content");
   };
 
-  //remove duplicate
   const itemsPerPage = 10; // Number of items per page
 
-  // Filter and remove duplicate categories
   const uniqueCategories = Array.from(
     new Map(contentList.map((item) => [item.title, item])).values()
   );
@@ -28,7 +26,6 @@ function Home({ onSearch }) {
     item.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Add this script to dynamically increase numbers
   useEffect(() => {
     const stats = document.querySelectorAll(".stat-item h3");
     stats.forEach((stat) => {
@@ -46,7 +43,6 @@ function Home({ onSearch }) {
   }, []);
 
   useEffect(() => {
-    // Select all hidden sections and FAQ items
     const sections = document.querySelectorAll(".hidden-section");
     const faqItems = document.querySelectorAll(".faq .details-item");
 
@@ -55,29 +51,25 @@ function Home({ onSearch }) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (entry.target.classList.contains("details-item")) {
-              // Handle FAQ staggered animation
-              const delay = [...faqItems].indexOf(entry.target) * 500; // Stagger by 100ms
+              const delay = [...faqItems].indexOf(entry.target) * 500;
               setTimeout(() => {
                 entry.target.classList.add("show");
               }, delay);
             } else {
-              // Handle general sections
               entry.target.classList.add("show-section");
             }
           } else {
-            // Remove classes when items leave the viewport
             entry.target.classList.remove("show");
             entry.target.classList.remove("show-section");
           }
         });
       },
-      { threshold: 0.2 } // Trigger when 20% of the section is visible
+      { threshold: 0.2 }
     );
 
-    // Observe all elements
     [...sections, ...faqItems].forEach((item) => observer.observe(item));
 
-    return () => observer.disconnect(); // Cleanup observer
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -90,8 +82,6 @@ function Home({ onSearch }) {
         />
       </Helmet>
 
-      {/* Hero Section */}
-      {/* Hero Section */}
       <main className="hero hidden-section fade-in">
         <h1>Welcome to Our Knowledge Base</h1>
         <p>Your one-stop solution to discover and explore valuable content.</p>
@@ -156,21 +146,30 @@ function Home({ onSearch }) {
       <section className="media-highlights">
         <h2>Media Highlights</h2>
         <div className="media-gallery">
-          <img
-            src="https://via.placeholder.com/150"
-            loading="lazy"
-            alt="Placeholder Tutorial 1"
-          />
-          <img
-            src="https://via.placeholder.com/150"
-            loading="lazy"
-            alt="Placeholder Tutorial 2"
-          />
-          <img
-            src="https://via.placeholder.com/150"
-            loading="lazy"
-            alt="Placeholder Tutorial 3"
-          />
+          <figure>
+            <img
+              src="https://picsum.photos/300/200"
+              loading="lazy"
+              alt="Placeholder Tutorial 1"
+            />
+            <figcaption>Tutorial 1</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://picsum.photos/300/200"
+              loading="lazy"
+              alt="Placeholder Tutorial 2"
+            />
+            <figcaption>Tutorial 2</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://picsum.photos/300/200"
+              loading="lazy"
+              alt="Placeholder Tutorial 3"
+            />
+            <figcaption>Tutorial 3</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -226,7 +225,6 @@ function Home({ onSearch }) {
         </Link>
       </section>
 
-      {/* Dynamic Content Highlights */}
       <section className="featured-content">
         <h2>Explore Popular Topics</h2>
         <div className="featured-list">
@@ -245,7 +243,6 @@ function Home({ onSearch }) {
         </div>
       </section>
 
-      {/* Features Section */}
       <section class="features">
         <h2>Why Use This Knowledge Base?</h2>
         <div className="featured-list">
@@ -272,7 +269,6 @@ function Home({ onSearch }) {
         </div>
       </section>
 
-      {/* Testimonials */}
       <section className="testimonials">
         <h2>What Our Users Say</h2>
         <div className="testimonial-list">
@@ -282,11 +278,13 @@ function Home({ onSearch }) {
               lifesaver!"
             </p>
             <cite>- User A</cite>
-            <img
-              src="https://via.placeholder.com/150"
-              loading="lazy"
-              alt="Placeholder Tutorial 1"
-            />
+            <figure>
+              <img
+                src="https://picsum.photos/300/200"
+                loading="lazy"
+                alt="Placeholder Tutorial 1"
+              />
+            </figure>
           </blockquote>
           <blockquote>
             <p>
@@ -294,11 +292,13 @@ function Home({ onSearch }) {
               effectively."
             </p>
             <cite>- User B</cite>
-            <img
-              src="https://via.placeholder.com/150"
-              loading="lazy"
-              alt="Placeholder Tutorial 1"
-            />
+            <figure>
+              <img
+                src="https://picsum.photos/300/200"
+                loading="lazy"
+                alt="Placeholder Tutorial 1"
+              />
+            </figure>
           </blockquote>
         </div>
       </section>
@@ -311,7 +311,6 @@ function Home({ onSearch }) {
         </Link>
       </section>
 
-      {/* Footer CTA */}
       <section className="cta">
         <h2>Ready to Explore?</h2>
         <p>
