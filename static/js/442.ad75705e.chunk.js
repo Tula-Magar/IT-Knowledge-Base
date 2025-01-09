@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkit_knowledge_base=self.webpackChunkit_knowledge_base||[]).push([[442],{8442:(e,s,n)=>{n.r(s),n.d(s,{default:()=>a});n(5043);var d=n(579);const a=()=>(0,d.jsxs)("div",{children:[(0,d.jsx)("h1",{children:"My Custom React Component"}),(0,d.jsx)("p",{children:"This is a dynamic React component loaded based on the id."})]})}}]);
+//# sourceMappingURL=442.ad75705e.chunk.js.map
