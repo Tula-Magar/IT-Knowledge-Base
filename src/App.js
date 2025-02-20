@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -10,43 +15,48 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState(""); // State to hold the search term
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (term) => {
-    setSearchTerm(term); // Update the search term state
+    setSearchTerm(term);
+  };
+
+  const PageWrapper = () => {
+    const location = useLocation();
+    const isFullWidthPage =
+      location.pathname === "/" || location.pathname === "/about";
+
+    return (
+      <div className={`App ${isFullWidthPage ? "full-width" : ""}`}>
+        <Navbar onSearch={handleSearch} resetSearch={() => setSearchTerm("")} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                onSearch={handleSearch}
+                resetSearch={() => setSearchTerm("")}
+              />
+            }
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/content"
+            element={<Content searchTerm={searchTerm} />}
+          />
+          <Route path="/content/:id" element={<ContentDetail />} />
+        </Routes>
+        <Footer />
+      </div>
+    );
   };
 
   return (
     <div id="app-wrapper">
-      <div className="App">
-        <Router>
-          <Navbar
-            onSearch={handleSearch}
-            resetSearch={() => setSearchTerm("")}
-          />
-          {/* Pass the handleSearch function */}
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  onSearch={handleSearch}
-                  resetSearch={() => setSearchTerm("")}
-                />
-              }
-            />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route
-              path="/content"
-              element={<Content searchTerm={searchTerm} />}
-            />
-            {/* Pass searchTerm to Content */}
-            <Route path="/content/:id" element={<ContentDetail />} />
-          </Routes>
-          <Footer />
-        </Router>
-      </div>
+      <Router>
+        <PageWrapper />
+      </Router>
     </div>
   );
 }
