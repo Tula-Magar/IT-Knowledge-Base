@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
@@ -9,15 +9,28 @@ function Pagination({ data, itemsPerPage, currentPage, setCurrentPage }) {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = data.slice(startIndex, startIndex + itemsPerPage);
 
+  useEffect(() => {
+    const items = document.querySelectorAll(".animated-category");
+
+    console.log("Pagination Updated: New Items Detected:", items.length); // Debugging
+
+    items.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add("show");
+      }, index * 100);
+    });
+  }, [currentItems]);
+
   return (
     <div>
       {/* Render current items */}
       <div className="category-list">
-        {currentItems.map((item) => (
+        {currentItems.map((item, index) => (
           <Link
             key={item.id}
             to={`/category/${item.id}`}
-            className="category-item"
+            className="category-item animated-category"
+            id={`category-${index}`}
             style={{ textDecoration: "none" }}
           >
             {item.title}

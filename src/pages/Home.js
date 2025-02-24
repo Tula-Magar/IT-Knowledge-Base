@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import contentList from "../Data/contentDataList";
 import Pagination from "./Pagination";
+import featuredList from "../Data/FeaturedList/FeaturedList";
 import { Helmet } from "react-helmet";
 import "./HomeAndAbout.css";
 
@@ -20,10 +21,10 @@ function Home({ onSearch }) {
   const itemsPerPage = 10; // Number of items per page
 
   const uniqueCategories = Array.from(
-    new Map(contentList.map((item) => [item.title, item])).values()
+    new Map(contentList.map((item) => [item.category, item])).values()
   );
   const filteredCategories = uniqueCategories.filter((item) =>
-    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+    item.category.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   useEffect(() => {
@@ -107,17 +108,17 @@ function Home({ onSearch }) {
       <section className="recent-content hidden-section slide-up">
         <h2>Latest Content</h2>
         <div className="featured-list">
-          {["network-troubleshooting", "password-reset", "api-integration"].map(
-            (item, index) => (
-              <div key={index} className="featured-item">
-                <h3>Content Title {index + 1}</h3>
-                <p>Snippet or summary of the content...</p>
-                <Link to={`/content/${item}`} className="btnLearnMore">
-                  Read More
-                </Link>
-              </div>
-            )
-          )}
+          {featuredList.map((item, index) => (
+            <div key={index} className="featured-item">
+              <h3>
+                {item.title} {index + 1}
+              </h3>
+              <p>{item.summary}</p>
+              <Link to={`/content/${item.link}`} className="btnLearnMore">
+                Read More
+              </Link>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -134,7 +135,6 @@ function Home({ onSearch }) {
           }}
           className="search-bar"
         />
-        {/* Pagination */}
         <Pagination
           data={filteredCategories}
           itemsPerPage={itemsPerPage}

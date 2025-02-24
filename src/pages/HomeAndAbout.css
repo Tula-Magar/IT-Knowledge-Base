@@ -9,8 +9,8 @@ section {
   border-radius: 12px;
   /* background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); */
-  border-top: 1px solid wheat;
-  border-bottom: 1px solid wheat;
+  /* border-top: 1px solid wheat;
+  border-bottom: 1px solid wheat; */
 }
 section h2 {
   padding: 20px;
@@ -77,7 +77,8 @@ section h2 {
 }
 
 .hero p {
-  font-size: 1.5rem;
+  font-size: 18px;
+  font-weight: 450;
   margin-bottom: 20px;
 }
 
@@ -111,7 +112,7 @@ section h2 {
 }
 
 .btnLearnMore {
-  background: linear-gradient(90deg, #3b3b98, #6c63ff);
+  background: linear-gradient(90deg, #1a1a22, #364707);
   padding: 12px 20px;
   border-radius: 8px;
   text-decoration: none;
@@ -126,6 +127,11 @@ section h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+.recent-content h2 {
+  font-size: clamp(36px, 5vw, 3.3rem);
+  font-weight: 600;
+  padding: 50px;
+}
 .featured-list {
   display: flex;
   flex-wrap: wrap;

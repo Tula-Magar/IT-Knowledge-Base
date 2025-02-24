@@ -6,7 +6,8 @@
   padding: 0; /* Adds some spacing for content */
   z-index: 1030; /* Bootstrap default for sticky navbar */
   border-bottom: 1px solid wheat;
-  background-color: rgb(37, 38, 39);
+  /* background-color: rgb(37, 38, 39); */
+  background-color: inherit;
 }
 .container-fluid,
 .container {
