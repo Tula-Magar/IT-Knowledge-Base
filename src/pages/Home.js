@@ -84,7 +84,11 @@ function Home({ onSearch }) {
       </Helmet>
 
       <main className="hero hidden-section fade-in">
-        <h1>Welcome to Our Knowledge Base</h1>
+        <h1>
+          IT & Development Made Easier - Practical Solutions for Everyday
+          Challenges
+        </h1>
+
         <p>Your one-stop solution to discover and explore valuable content.</p>
         <form className="hero-search" onSubmit={handleSearchSubmit}>
           <input
