@@ -130,7 +130,6 @@ section h2 {
 
 .featured-item p {
   margin-bottom: 15px;
-  font-size: 16px;
   line-height: l.6;
   color: #d1d1d1;
 }
@@ -229,7 +228,6 @@ section h2 {
 .testimonial-list blockquote {
   font-style: italic;
   margin-bottom: 20px;
-  font-size: 16px;
   color: white;
 }
 
@@ -272,4 +270,36 @@ section h2 {
 
 .cta p {
   margin-bottom: 30px;
+}
+
+/* Tablets */
+@media (min-width: 600px) {
+}
+
+/* Laptops */
+@media (min-width: 768px) {
+  .featured-item {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+/* Desktops */
+@media (min-width: 1024px) {
+}
+
+/* Large Desktops */
+@media (min-width: 1440px) {
+  .featured-list {
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .featured-item {
+    flex: 1 1 calc(500px - 20px);
+    max-width: calc(500px - 20px);
+  }
 }

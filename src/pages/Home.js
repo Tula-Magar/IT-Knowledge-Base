@@ -232,15 +232,14 @@ function Home({ onSearch }) {
       <section className="featured-content">
         <h2>Explore Popular Topics</h2>
         <div className="featured-list">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="featured-item">
-              <h3>Topic {i + 1}</h3>
-              <p>
-                A brief summary of Topic {i + 1}. Discover insights and key
-                takeaways.
-              </p>
-              <Link to={`/content/${i}`} className="btnLearnMore">
-                Learn More
+          {featuredList.map((item, index) => (
+            <div key={index} className="featured-item">
+              <h3>
+                {item.title} {index + 1}
+              </h3>
+              <p>{item.summary}</p>
+              <Link to={`/content/${item.link}`} className="btnLearnMore">
+                Read More
               </Link>
             </div>
           ))}
