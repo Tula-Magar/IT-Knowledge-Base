@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/IT-Knowledge-Base/static/css/main.f11cbc2f.css",
-    "main.js": "/IT-Knowledge-Base/static/js/main.35b9d74d.js",
+    "main.css": "/IT-Knowledge-Base/static/css/main.e575049e.css",
+    "main.js": "/IT-Knowledge-Base/static/js/main.57732007.js",
     "static/js/442.ad75705e.chunk.js": "/IT-Knowledge-Base/static/js/442.ad75705e.chunk.js",
-    "static/js/452.6cecba25.chunk.js": "/IT-Knowledge-Base/static/js/452.6cecba25.chunk.js",
-    "static/js/686.66bca3f0.chunk.js": "/IT-Knowledge-Base/static/js/686.66bca3f0.chunk.js",
+    "static/js/452.716fed6b.chunk.js": "/IT-Knowledge-Base/static/js/452.716fed6b.chunk.js",
+    "static/js/686.073d42e7.chunk.js": "/IT-Knowledge-Base/static/js/686.073d42e7.chunk.js",
     "static/js/453.72a0edd8.chunk.js": "/IT-Knowledge-Base/static/js/453.72a0edd8.chunk.js",
     "static/media/logo.png": "/IT-Knowledge-Base/static/media/logo.f61f40a01a1d969f1d5b.png",
     "index.html": "/IT-Knowledge-Base/index.html",
-    "static/media/network-troubleshooting.md": "/IT-Knowledge-Base/static/media/network-troubleshooting.04e388a6d2b9b9659077.md",
-    "static/media/password-reset.md": "/IT-Knowledge-Base/static/media/password-reset.4baaacb70ae16089f105.md",
-    "main.f11cbc2f.css.map": "/IT-Knowledge-Base/static/css/main.f11cbc2f.css.map",
-    "main.35b9d74d.js.map": "/IT-Knowledge-Base/static/js/main.35b9d74d.js.map",
+    "static/media/network-troubleshooting.md": "/IT-Knowledge-Base/static/media/network-troubleshooting.fc5c8543c6192d486fb8.md",
+    "static/media/password-reset.md": "/IT-Knowledge-Base/static/media/password-reset.209d76e278c8a0420ea1.md",
+    "main.e575049e.css.map": "/IT-Knowledge-Base/static/css/main.e575049e.css.map",
+    "main.57732007.js.map": "/IT-Knowledge-Base/static/js/main.57732007.js.map",
     "442.ad75705e.chunk.js.map": "/IT-Knowledge-Base/static/js/442.ad75705e.chunk.js.map",
     "453.72a0edd8.chunk.js.map": "/IT-Knowledge-Base/static/js/453.72a0edd8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f11cbc2f.css",
-    "static/js/main.35b9d74d.js"
+    "static/css/main.e575049e.css",
+    "static/js/main.57732007.js"
   ]
 }
