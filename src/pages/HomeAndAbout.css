@@ -351,6 +351,24 @@ section h2 {
 
 /* Desktops */
 @media (min-width: 1024px) {
+  .recent-content .featured-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+  }
+
+  .popular-topics .featured-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+  }
+
+  .knowledge-base .featured-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }
 
 /* Large Desktops */
