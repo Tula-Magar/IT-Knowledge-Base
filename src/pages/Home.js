@@ -37,7 +37,7 @@ function Home({ onSearch }) {
         count += increment;
         stat.innerText =
           count >= target ? `${Math.ceil(target)}+` : Math.ceil(count);
-        if (count < target) setTimeout(updateCounter, 30);
+        if (count < target) setTimeout(updateCounter, 51);
       };
       updateCounter();
     });
@@ -110,7 +110,10 @@ function Home({ onSearch }) {
       </main>
 
       <section className="recent-content hidden-section slide-up">
-        <h2>Latest Content</h2>
+        <h2>
+          {" "}
+          <span class="icon">📌 Latest Content </span>
+        </h2>
         <div className="featured-list">
           {featuredList.map((item, index) => (
             <div key={index} className="featured-item">
@@ -229,8 +232,10 @@ function Home({ onSearch }) {
         </Link>
       </section>
 
-      <section className="featured-content">
-        <h2>Explore Popular Topics</h2>
+      <section className="featured-content popular-topics">
+        <h2>
+          <span class="icon">🔥Explore Popular Topics</span>
+        </h2>
         <div className="featured-list">
           {featuredList.map((item, index) => (
             <div key={index} className="featured-item">
@@ -246,9 +251,17 @@ function Home({ onSearch }) {
         </div>
       </section>
 
-      <section class="features">
-        <h2>Why Use This Knowledge Base?</h2>
+      <section className="featured-content knowledge-base">
+        <h2>
+          <span class="icon">💡 Why Use This Knowledge Base?</span>
+        </h2>
         <div className="featured-list">
+          <div className="featured-item">
+            <h3>Well-Organized</h3>
+            <p>
+              Structured navigation ensures you never get lost while exploring.
+            </p>
+          </div>
           <div className="featured-item">
             <h3>Accessible Information</h3>
             <p>
@@ -256,12 +269,7 @@ function Home({ onSearch }) {
               needs.
             </p>
           </div>
-          <div className="featured-item">
-            <h3>Well-Organized</h3>
-            <p>
-              Structured navigation ensures you never get lost while exploring.
-            </p>
-          </div>
+
           <div className="featured-item">
             <h3>Always Expanding</h3>
             <p>

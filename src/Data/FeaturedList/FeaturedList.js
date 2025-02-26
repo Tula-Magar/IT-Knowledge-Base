@@ -35,6 +35,13 @@ const featuredList = [
     link: "",
   },
   {
+    id: "cloud-storage",
+    title: "Choosing Cloud Storage Solutions",
+    summary:
+      "Compare and choose the best cloud storage services based on security, price, and ease of use.",
+    link: "",
+  },
+  {
     id: "cybersecurity-basics",
     title: "Introduction to Cybersecurity",
     summary:

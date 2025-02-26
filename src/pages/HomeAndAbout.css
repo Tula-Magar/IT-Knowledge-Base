@@ -17,6 +17,36 @@ section h2 {
   padding-top: 0px;
   color: rgb(255, 255, 255);
 }
+/* Hidden by default */
+.hidden-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Fade-in animation */
+.fade-in.show-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide-up animation */
+.slide-up.show-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.zoom-in.hidden-section {
+  opacity: 0.5;
+  transform: scale(0.8); /* Start smaller */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When the element is visible */
+.zoom-in.show-section {
+  opacity: 1;
+  transform: scale(1); /* Grows to full size */
+}
 
 .hero {
   background: linear-gradient(120deg, #6c63ff, #0e0e36);
@@ -59,9 +89,9 @@ section h2 {
 
 .hero-search input {
   padding: 10px;
-  border: none;
-  border-radius: 50% 20% / 10% 40%;
-  width: 70%;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 500px;
 }
 
 .hero-search button {
@@ -70,7 +100,7 @@ section h2 {
   color: white;
   font-weight: 700;
   border: none;
-  border-radius: 50% 20% / 10% 40%;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -91,9 +121,8 @@ section h2 {
 }
 
 .btnLearnMore:hover {
-  background: linear-gradient(90deg, #6c63ff, #3b3b98);
-  transform: scale(1.1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.2);
+  transform: scale(1.05);
 }
 
 .recent-content h2 {
@@ -102,10 +131,30 @@ section h2 {
   padding: 50px;
   padding-top: 0px;
 }
-.featured-list {
+/* .featured-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 20px;
+} */
+
+.recent-content .featured-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.popular-topics .featured-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.knowledge-base .featured-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 
@@ -152,7 +201,8 @@ section h2 {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 8px;
-  background-color: #3b3b98;
+  background: linear-gradient(90deg, #444, #555);
+  /* background-color: #3b3b98; */
   color: white;
   text-decoration: none;
   text-align: center;
@@ -226,9 +276,9 @@ section h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .testimonial-list blockquote {
-  font-style: italic;
+  padding: 15px;
+  border-radius: 8px;
   margin-bottom: 20px;
-  color: white;
 }
 
 .testimonial-list cite {
@@ -274,6 +324,9 @@ section h2 {
 
 /* Tablets */
 @media (min-width: 600px) {
+  .featured-item {
+    padding: 15px;
+  }
 }
 
 /* Laptops */
@@ -281,6 +334,11 @@ section h2 {
   .featured-item {
     flex: 1 1 calc(50% - 20px);
     max-width: calc(50% - 20px);
+  }
+  .stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 }
 
