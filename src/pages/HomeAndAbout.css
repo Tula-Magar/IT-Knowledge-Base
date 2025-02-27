@@ -355,7 +355,7 @@ section h2 {
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 400px));
     gap: 20px;
-    align-items: stretch; /* Ensures all grid items have the same height */
+    align-items: stretch;
   }
 }
 
