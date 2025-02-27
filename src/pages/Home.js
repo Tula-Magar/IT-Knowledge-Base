@@ -112,7 +112,7 @@ function Home({ onSearch }) {
       <section className="recent-content hidden-section slide-up">
         <h2>
           {" "}
-          <span class="icon">📌 Latest Content </span>
+          <span className="icon">📌 Latest Content </span>
         </h2>
         <div className="featured-list">
           {featuredList.map((item, index) => (
@@ -234,7 +234,7 @@ function Home({ onSearch }) {
 
       <section className="featured-content popular-topics">
         <h2>
-          <span class="icon">🔥Explore Popular Topics</span>
+          <span className="icon">🔥Explore Popular Topics</span>
         </h2>
         <div className="featured-list">
           {featuredList.map((item, index) => (
@@ -253,7 +253,7 @@ function Home({ onSearch }) {
 
       <section className="featured-content knowledge-base">
         <h2>
-          <span class="icon">💡 Why Use This Knowledge Base?</span>
+          <span className="icon">💡 Why Use This Knowledge Base?</span>
         </h2>
         <div className="featured-list">
           <div className="featured-item">
