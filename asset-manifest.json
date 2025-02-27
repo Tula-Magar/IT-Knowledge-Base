@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/IT-Knowledge-Base/static/css/main.e575049e.css",
-    "main.js": "/IT-Knowledge-Base/static/js/main.57732007.js",
+    "main.css": "/IT-Knowledge-Base/static/css/main.4a547039.css",
+    "main.js": "/IT-Knowledge-Base/static/js/main.b4ca77be.js",
     "static/js/442.ad75705e.chunk.js": "/IT-Knowledge-Base/static/js/442.ad75705e.chunk.js",
     "static/js/452.716fed6b.chunk.js": "/IT-Knowledge-Base/static/js/452.716fed6b.chunk.js",
     "static/js/686.073d42e7.chunk.js": "/IT-Knowledge-Base/static/js/686.073d42e7.chunk.js",
@@ -10,13 +10,13 @@
     "index.html": "/IT-Knowledge-Base/index.html",
     "static/media/network-troubleshooting.md": "/IT-Knowledge-Base/static/media/network-troubleshooting.fc5c8543c6192d486fb8.md",
     "static/media/password-reset.md": "/IT-Knowledge-Base/static/media/password-reset.209d76e278c8a0420ea1.md",
-    "main.e575049e.css.map": "/IT-Knowledge-Base/static/css/main.e575049e.css.map",
-    "main.57732007.js.map": "/IT-Knowledge-Base/static/js/main.57732007.js.map",
+    "main.4a547039.css.map": "/IT-Knowledge-Base/static/css/main.4a547039.css.map",
+    "main.b4ca77be.js.map": "/IT-Knowledge-Base/static/js/main.b4ca77be.js.map",
     "442.ad75705e.chunk.js.map": "/IT-Knowledge-Base/static/js/442.ad75705e.chunk.js.map",
     "453.72a0edd8.chunk.js.map": "/IT-Knowledge-Base/static/js/453.72a0edd8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e575049e.css",
-    "static/js/main.57732007.js"
+    "static/css/main.4a547039.css",
+    "static/js/main.b4ca77be.js"
   ]
 }
